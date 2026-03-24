@@ -5,28 +5,29 @@ const YouTubeLatest = () => {
   const [videoId, setVideoId] = useState("");
 
   useEffect(() => {
-    const fetchLatestVideo = async () => {
+    const fetchRandomVideo = async () => {
       try {
         const res = await axios.get(
-          `https://www.googleapis.com/youtube/v3/search`,
+          `https://www.googleapis.com/youtube/v3/playlistItems`,
           {
             params: {
               key: "AIzaSyBJodTaVATEMzu4_cowTuzr7KOLkfU8oSo",
-              channelId: "UCRd2nZPMFYHCRq-rtQa6vHg",
+              playlistId: "PLtvd9zpVkJGNYvjZPWC52jJ-dn2k393fp",
               part: "snippet",
-              order: "date",
-              maxResults: 1,
+              maxResults: 50,
             },
-          }
+          },
         );
-        const latestVideo = res.data.items[0];
-        setVideoId(latestVideo.id.videoId);
+        const videos = res.data.items;
+        const randomIndex = Math.floor(Math.random() * videos.length);
+        const randomVideo = videos[randomIndex];
+        setVideoId(randomVideo.snippet.resourceId.videoId);
       } catch (err) {
-        console.error("Failed to fetch latest video", err);
+        console.error("Failed to fetch playlist videos", err);
       }
     };
 
-    fetchLatestVideo();
+    fetchRandomVideo();
   }, []);
 
   return (
@@ -36,12 +37,12 @@ const YouTubeLatest = () => {
           width="100%"
           height="360"
           src={`https://www.youtube.com/embed/${videoId}`}
-          title="Latest YouTube Video"
+          title="Random YouTube Video"
           frameBorder="0"
           allowFullScreen
         ></iframe>
       ) : (
-        <p className="text-center text-white p-4">Loading latest video...</p>
+        <p className="text-center text-white p-4">Loading random video...</p>
       )}
     </div>
   );
