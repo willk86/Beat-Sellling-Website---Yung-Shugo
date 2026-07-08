@@ -12,7 +12,7 @@ const YouTubeLatest = () => {
           {
             params: {
               key: "AIzaSyBJodTaVATEMzu4_cowTuzr7KOLkfU8oSo",
-              playlistId: "PLtvd9zpVkJGNYvjZPWC52jJ-dn2k393fp",
+              playlistId: "PLf1tMP6VjfF4",
               part: "snippet",
               maxResults: 50,
             },
