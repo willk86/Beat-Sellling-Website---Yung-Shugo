@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Headphones, Mail } from "lucide-react";
-import YouTubeLatest from "../components/YouTubeLatest";
 
 const Home = () => {
   return (
@@ -16,18 +15,6 @@ const Home = () => {
           Creating unique soundscapes for artists and content creators
           worldwide.
         </h1>
-      </motion.div>
-
-      {/* YouTube Player */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-        className="overflow-hidden shadow-2xl"
-      >
-        <div className="p-4">
-          <YouTubeLatest />
-        </div>
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8 mt-12">

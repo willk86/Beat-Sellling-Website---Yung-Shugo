@@ -15,7 +15,7 @@ const Contact = () => {
 
       <div className="space-y-6">
         <motion.a
-          href="https://instagram.com/yungshugo"
+          href="https://instagram.com/86shugo"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
